@@ -5,10 +5,9 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { config } from 'dotenv';
 
-/* import IndexRoutes from './routes/index.routes';
+import MovieRoutes from './routes/movie.routes';
 import UserRoutes from './routes/user.routes';
-import { jwtUser, seed } from './middlewares/user.middlewares';
-import userModel from './models/user.model'; */
+/*import { jwtUser, seed } from './middlewares/user.middlewares';*/
 
 /* Initializations */
 const app: Application = express();
@@ -37,8 +36,8 @@ passport.deserializeUser(async (id: any, done) => {
 }); */
 
 // Routes
-/* app.use('/', IndexRoutes);
-app.use('/user', UserRoutes); */
+app.use('/movie', MovieRoutes);
+app.use('/user', UserRoutes);
 
 /* DB and server setup */
 mongoose.connect(
