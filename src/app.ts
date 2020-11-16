@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 import mongoose from 'mongoose';
-import passport from 'passport';
+/* import passport from 'passport'; */
 import morgan from 'morgan';
 import cors from 'cors';
 import { config } from 'dotenv';
@@ -17,8 +17,8 @@ if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === undefined)
 //Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(passport.initialize());
-app.use(passport.session());
+/* app.use(passport.initialize());
+app.use(passport.session()); */
 /* passport.use('userJwt', jwtUser); */
 app.use(morgan('dev'));
 app.use(cors());
