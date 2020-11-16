@@ -5,6 +5,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { config } from 'dotenv';
 
+import MovieRoutes from './routes/movie.routes';
+import UserRoutes from './routes/user.routes';
 /* import IndexRoutes from './routes/index.routes';
 import UserRoutes from './routes/user.routes';
 import { jwtUser, seed } from './middlewares/user.middlewares';
@@ -37,8 +39,8 @@ passport.deserializeUser(async (id: any, done) => {
 }); */
 
 // Routes
-/* app.use('/', IndexRoutes);
-app.use('/user', UserRoutes); */
+app.use('/movie', MovieRoutes);
+app.use('/user', UserRoutes);
 
 /* DB and server setup */
 mongoose.connect(
