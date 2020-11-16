@@ -11,7 +11,7 @@ class MovieControllers {
         const newMovie = new MovieModel({
             title, author, director, rating, genre: arr,
             date: Date.now()
-        });
+        }).populate('author','director');
 
         await newMovie.save();
 
@@ -19,7 +19,8 @@ class MovieControllers {
     }
 
     async getMovies(req: Request, res: Response) {
-        const movies = await MovieModel.find();
+        const movies = await MovieModel.find()
+            .populate('author','director');
 
         return res.json({ statusText: 'done', movies })
     }

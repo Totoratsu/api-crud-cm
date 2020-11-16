@@ -11,12 +11,12 @@ const validGenres = {
 
 const MovieSchema = new Schema({
     title: { type: String, required: true },
-    author: { type: String, required: true },
-    director: { type: String, required: true },
-    date : { type: Date, required:true },
-    rating: { type: Number, required: false, default:0 },
-    genre: { type: [{ type: String, default: 'OTHER', enum: validGenres }] }, 
-},{
+    author: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
+    director: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
+    date: { type: Date, required: true },
+    rating: { type: Number, required: false, default: 0 },
+    genre: { type: [{ type: String, default: 'OTHER', enum: validGenres }] },
+}, {
     timestamps: true
 });
 
@@ -28,8 +28,8 @@ MovieSchema.methods.toJSON = function () {
 
 export interface IMovie extends Document {
     title: string;
-    author: string;
-    director: string;
+    author: Schema.Types.ObjectId;
+    director: Schema.Types.ObjectId;
     date: Date;
     rating: Number;
     genre: string[];

@@ -7,10 +7,7 @@ import { config } from 'dotenv';
 
 import MovieRoutes from './routes/movie.routes';
 import UserRoutes from './routes/user.routes';
-/* import IndexRoutes from './routes/index.routes';
-import UserRoutes from './routes/user.routes';
-import { jwtUser, seed } from './middlewares/user.middlewares';
-import userModel from './models/user.model'; */
+/*import { jwtUser, seed } from './middlewares/user.middlewares';*/
 
 /* Initializations */
 const app: Application = express();
